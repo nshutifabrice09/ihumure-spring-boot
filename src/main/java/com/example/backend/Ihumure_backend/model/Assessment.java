@@ -5,7 +5,7 @@ import jakarta.persistence.OneToMany;
 
 import java.time.LocalDate;
 
-public class Assessnment {
+public class Assessment {
     private Long id;
 
     @ManyToOne
