@@ -4,6 +4,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Assessment {
     private Long id;
