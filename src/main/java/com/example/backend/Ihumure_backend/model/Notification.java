@@ -24,4 +24,44 @@ public class Notification {
     private String message;
     private boolean read;
     private LocalDate sentAt;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getRecipient() {
+        return recipient;
+    }
+
+    public void setRecipient(User recipient) {
+        this.recipient = recipient;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public boolean isRead() {
+        return read;
+    }
+
+    public void setRead(boolean read) {
+        this.read = read;
+    }
+
+    public LocalDate getSentAt() {
+        return sentAt;
+    }
+
+    public void setSentAt(LocalDate sentAt) {
+        this.sentAt = sentAt;
+    }
 }
