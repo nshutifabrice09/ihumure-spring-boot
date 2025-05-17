@@ -20,6 +20,7 @@ public class Comment {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "post_id")
     private GroupPost post;
 
     @ManyToOne
