@@ -27,4 +27,44 @@ public class Assessment {
 
     @OneToMany(mappedBy = "assessment")
     private List<AssessmentAnswer> answers;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public LocalDate getTakenAt() {
+        return takenAt;
+    }
+
+    public void setTakenAt(LocalDate takenAt) {
+        this.takenAt = takenAt;
+    }
+
+    public String getResultSummary() {
+        return resultSummary;
+    }
+
+    public void setResultSummary(String resultSummary) {
+        this.resultSummary = resultSummary;
+    }
+
+    public List<AssessmentAnswer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<AssessmentAnswer> answers) {
+        this.answers = answers;
+    }
 }
