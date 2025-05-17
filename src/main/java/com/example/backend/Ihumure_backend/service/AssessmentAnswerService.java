@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface AssessmentAnswerService {
     List<AssessmentAnswer> getAllAssessmentAnswers();
-    
+    AssessmentAnswer getAssessmentAnswerById(Long id);
+    AssessmentAnswer save(AssessmentAnswer assessmentAnswer, )
 }

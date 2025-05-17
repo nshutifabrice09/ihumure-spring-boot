@@ -18,12 +18,12 @@ public class AssessmentAnswer {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "assessment_id")
     private Assessment assessment;
 
     @ManyToOne
+    @JoinColumn(name = "assessment_question_id")
     private AssessmentQuestion question;
-
-    private int score;
 
     public Long getId() {
         return id;
@@ -47,13 +47,5 @@ public class AssessmentAnswer {
 
     public void setQuestion(AssessmentQuestion question) {
         this.question = question;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 }

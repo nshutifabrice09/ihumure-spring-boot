@@ -20,9 +20,11 @@ public class Appointment {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "therapist_id")
     private Therapist therapist;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     private LocalDate appointmentTime;
