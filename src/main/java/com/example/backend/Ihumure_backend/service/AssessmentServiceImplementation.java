@@ -1,6 +1,7 @@
 package com.example.backend.Ihumure_backend.service;
 
 import com.example.backend.Ihumure_backend.model.Assessment;
+import com.example.backend.Ihumure_backend.model.User;
 import com.example.backend.Ihumure_backend.repository.AssessmentRepository;
 import com.example.backend.Ihumure_backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,11 +33,14 @@ public class AssessmentServiceImplementation implements AssessmentService{
 
     @Override
     public Assessment save(Assessment assessment, Long userId) {
-        return null;
+        User user = userRepository.findUserById(userId);
+        assessment.setUser(user);
+        return assessmentRepository.save(assessment);
     }
 
     @Override
     public Assessment updateAssessment(Long id, Assessment assessment) {
+        
         return null;
     }
 

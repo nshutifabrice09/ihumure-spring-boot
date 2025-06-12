@@ -9,5 +9,4 @@ import org.springframework.stereotype.Repository;
 public interface TherapistRepository extends JpaRepository<Therapist, Long> {
     Therapist findTherapyById(Long therapyId);
 
-    User findUserById(Long userId);
 }
