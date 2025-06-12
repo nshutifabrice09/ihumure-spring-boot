@@ -6,6 +6,7 @@ import com.example.backend.Ihumure_backend.model.User;
 import com.example.backend.Ihumure_backend.repository.AppointmentRepository;
 import com.example.backend.Ihumure_backend.repository.TherapistRepository;
 import com.example.backend.Ihumure_backend.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class AppointmentServiceImplementation implements AppointmentService{
     private final TherapistRepository therapistRepository;
     private final UserRepository userRepository;
 
+    @Autowired
     public AppointmentServiceImplementation(AppointmentRepository appointmentRepository, TherapistRepository therapistRepository, UserRepository userRepository) {
         this.appointmentRepository = appointmentRepository;
         this.therapistRepository = therapistRepository;
