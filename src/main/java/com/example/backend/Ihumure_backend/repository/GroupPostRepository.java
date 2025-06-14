@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GroupPostRepository extends JpaRepository<GroupPost, Long> {
+    GroupPost findGroupPostById(Long postId);
 }

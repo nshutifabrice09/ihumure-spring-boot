@@ -1,6 +1,7 @@
 package com.example.backend.Ihumure_backend.service;
 
 import com.example.backend.Ihumure_backend.model.Comment;
+import com.example.backend.Ihumure_backend.model.GroupPost;
 import com.example.backend.Ihumure_backend.repository.CommentRepository;
 import com.example.backend.Ihumure_backend.repository.GroupPostRepository;
 import com.example.backend.Ihumure_backend.repository.UserRepository;
@@ -34,7 +35,7 @@ public class CommentServiceImplementation implements CommentService{
 
     @Override
     public Comment save(Comment comment, Long postId, Long authorId) {
-        return null;
+        GroupPost groupPost = groupPostRepository.findGroupPostById(postId);
     }
 
     @Override
