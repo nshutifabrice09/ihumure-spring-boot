@@ -16,29 +16,34 @@ public class AssessmentQuestionServiceImplementation implements AssessmentQuesti
        this.assessmentQuestionRepository = assessmentQuestionRepository;
     }
 
-
     @Override
     public List<AssessmentQuestion> getAllAssessmentQuestions() {
-        return null;
+        return assessmentQuestionRepository.findAll();
     }
 
     @Override
     public AssessmentQuestion getAssessmentQuestionById(Long id) {
-        return null;
+        return assessmentQuestionRepository.findAssessmentQuestionById(id);
     }
 
     @Override
     public AssessmentQuestion save(AssessmentQuestion assessmentQuestion) {
-        return null;
+        return assessmentQuestionRepository.save(assessmentQuestion);
     }
 
     @Override
     public AssessmentQuestion updateAssessmentQuestion(Long id, AssessmentQuestion assessmentQuestion) {
+        AssessmentQuestion existAssessmentQuestion = assessmentQuestionRepository.findAssessmentQuestionById(id);
+        if(existAssessmentQuestion !=null){
+            existAssessmentQuestion.setQuestionText(assessmentQuestion.getQuestionText());
+            existAssessmentQuestion.setCategory(assessmentQuestion.getCategory());
+            return assessmentQuestionRepository.save(existAssessmentQuestion);
+        }
         return null;
     }
 
     @Override
     public void removeById(Long id) {
-
+        assessmentQuestionRepository.deleteById(id);
     }
 }
