@@ -1,6 +1,8 @@
 package com.example.backend.Ihumure_backend.service;
 
+import com.example.backend.Ihumure_backend.model.Assessment;
 import com.example.backend.Ihumure_backend.model.AssessmentAnswer;
+import com.example.backend.Ihumure_backend.model.AssessmentQuestion;
 import com.example.backend.Ihumure_backend.repository.AssessmentAnswerRepository;
 import com.example.backend.Ihumure_backend.repository.AssessmentQuestionRepository;
 import com.example.backend.Ihumure_backend.repository.AssessmentRepository;
@@ -35,7 +37,9 @@ public class AssessmentAnswerServiceImplementation implements AssessmentAnswerSe
 
     @Override
     public AssessmentAnswer save(AssessmentAnswer assessmentAnswer, Long assessmentId, Long questionId) {
-        return null;
+        Assessment assessment = assessmentRepository.findAssessmentById(assessmentId);
+        AssessmentQuestion assessmentQuestion = assessmentQuestionRepository.findAssessmentQuestionById(questionId);
+
     }
 
     @Override
