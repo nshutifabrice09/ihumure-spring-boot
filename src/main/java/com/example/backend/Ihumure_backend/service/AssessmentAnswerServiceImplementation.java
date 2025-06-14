@@ -25,12 +25,12 @@ public class AssessmentAnswerServiceImplementation implements AssessmentAnswerSe
 
     @Override
     public List<AssessmentAnswer> getAllAssessmentAnswers() {
-        return null;
+        return assessmentAnswerRepository.findAll();
     }
 
     @Override
     public AssessmentAnswer getAssessmentAnswerById(Long id) {
-        return null;
+        return assessmentAnswerRepository.findAssessmentAnswerById(id);
     }
 
     @Override

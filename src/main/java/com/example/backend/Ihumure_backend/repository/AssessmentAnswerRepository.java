@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AssessmentAnswerRepository extends JpaRepository<AssessmentAnswer, Long> {
+    AssessmentAnswer findAssessmentAnswerById(Long id);
 }
