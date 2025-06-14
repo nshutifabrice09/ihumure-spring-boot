@@ -39,16 +39,22 @@ public class AssessmentAnswerServiceImplementation implements AssessmentAnswerSe
     public AssessmentAnswer save(AssessmentAnswer assessmentAnswer, Long assessmentId, Long questionId) {
         Assessment assessment = assessmentRepository.findAssessmentById(assessmentId);
         AssessmentQuestion assessmentQuestion = assessmentQuestionRepository.findAssessmentQuestionById(questionId);
-
+        assessmentAnswer.setAssessment(assessment);
+        assessmentAnswer.setQuestion(assessmentQuestion);
+        return assessmentAnswerRepository.save(assessmentAnswer);
     }
 
     @Override
     public AssessmentAnswer updateAssessmentAnswer(Long id, AssessmentAnswer assessmentAnswer) {
+        AssessmentAnswer existAssessmentAnswer = assessmentAnswerRepository.findAssessmentAnswerById(id);
+        if(existAssessmentAnswer !=null){
+            return assessmentAnswerRepository.save(existAssessmentAnswer);
+        }
         return null;
     }
 
     @Override
     public void removeById(Long id) {
-
+        assessmentAnswerRepository.deleteById(id);
     }
 }
