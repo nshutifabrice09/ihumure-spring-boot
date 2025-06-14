@@ -40,12 +40,17 @@ public class AssessmentServiceImplementation implements AssessmentService{
 
     @Override
     public Assessment updateAssessment(Long id, Assessment assessment) {
-        
+        Assessment existAssessment = assessmentRepository.findAssessmentById(id);
+        if(existAssessment != null){
+            existAssessment.setTakenAt(assessment.getTakenAt());
+            existAssessment.setResultSummary(assessment.getResultSummary());
+            return assessmentRepository.save(existAssessment);
+        }
         return null;
     }
 
     @Override
     public void removeById(Long id) {
-
+        assessmentRepository.deleteById(id);
     }
 }
