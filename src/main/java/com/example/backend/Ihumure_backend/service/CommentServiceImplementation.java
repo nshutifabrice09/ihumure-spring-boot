@@ -1,12 +1,27 @@
 package com.example.backend.Ihumure_backend.service;
 
 import com.example.backend.Ihumure_backend.model.Comment;
+import com.example.backend.Ihumure_backend.repository.CommentRepository;
+import com.example.backend.Ihumure_backend.repository.GroupPostRepository;
+import com.example.backend.Ihumure_backend.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class CommentServiceImplementation implements CommentService{
+    private final CommentRepository commentRepository;
+    private final GroupPostRepository groupPostRepository;
+    private final UserRepository userRepository;
+
+    @Autowired
+    public CommentServiceImplementation(CommentRepository commentRepository, GroupPostRepository groupPostRepository, UserRepository userRepository) {
+        this.commentRepository = commentRepository;
+        this.groupPostRepository = groupPostRepository;
+        this.userRepository = userRepository;
+    }
+
     @Override
     public List<Comment> getAllComments() {
         return null;
