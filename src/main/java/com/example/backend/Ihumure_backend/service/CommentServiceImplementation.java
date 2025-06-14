@@ -24,12 +24,12 @@ public class CommentServiceImplementation implements CommentService{
 
     @Override
     public List<Comment> getAllComments() {
-        return null;
+        return commentRepository.findAll();
     }
 
     @Override
     public Comment getCommentById(Long id) {
-        return null;
+        return commentRepository.findCommentById(id);
     }
 
     @Override
