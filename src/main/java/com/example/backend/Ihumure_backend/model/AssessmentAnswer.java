@@ -18,9 +18,11 @@ public class AssessmentAnswer {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "assessment_id")
     private Assessment assessment;
 
     @ManyToOne
+    @JoinColumn(name = "question_id")
     private AssessmentQuestion question;
 
     public Long getId() {

@@ -1,4 +1,50 @@
 package com.example.backend.Ihumure_backend.service;
 
-public class AssessmentAnswerServiceImplementation {
+import com.example.backend.Ihumure_backend.model.AssessmentAnswer;
+import com.example.backend.Ihumure_backend.repository.AssessmentAnswerRepository;
+import com.example.backend.Ihumure_backend.repository.AssessmentQuestionRepository;
+import com.example.backend.Ihumure_backend.repository.AssessmentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class AssessmentAnswerServiceImplementation implements AssessmentAnswerService {
+    private final AssessmentAnswerRepository assessmentAnswerRepository;
+    private final AssessmentRepository assessmentRepository;
+
+    private final AssessmentQuestionRepository assessmentQuestionRepository;
+
+    @Autowired
+    public AssessmentAnswerServiceImplementation(AssessmentAnswerRepository assessmentAnswerRepository, AssessmentRepository assessmentRepository, AssessmentQuestionRepository assessmentQuestionRepository) {
+        this.assessmentAnswerRepository = assessmentAnswerRepository;
+        this.assessmentRepository = assessmentRepository;
+        this.assessmentQuestionRepository = assessmentQuestionRepository;
+    }
+
+    @Override
+    public List<AssessmentAnswer> getAllAssessmentAnswers() {
+        return null;
+    }
+
+    @Override
+    public AssessmentAnswer getAssessmentAnswerById(Long id) {
+        return null;
+    }
+
+    @Override
+    public AssessmentAnswer save(AssessmentAnswer assessmentAnswer, Long assessmentId, Long questionId) {
+        return null;
+    }
+
+    @Override
+    public AssessmentAnswer updateAssessmentAnswer(Long id, AssessmentAnswer assessmentAnswer) {
+        return null;
+    }
+
+    @Override
+    public void removeById(Long id) {
+
+    }
 }
