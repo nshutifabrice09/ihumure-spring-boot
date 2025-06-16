@@ -36,8 +36,8 @@ public class AppointmentServiceImplementation implements AppointmentService{
     }
 
     @Override
-    public Appointment saveAppointment(Appointment appointment, Long therapyId, Long userId) {
-        Therapist therapist = therapistRepository.findTherapyById(therapyId);
+    public Appointment saveAppointment(Appointment appointment, Long therapistId, Long userId) {
+        Therapist therapist = therapistRepository.findTherapistById(therapistId);
         User user = userRepository.findUserById(userId);
         appointment.setTherapist(therapist);
         appointment.setUser(user);

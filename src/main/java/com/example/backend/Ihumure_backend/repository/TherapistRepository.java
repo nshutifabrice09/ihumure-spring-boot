@@ -7,6 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TherapistRepository extends JpaRepository<Therapist, Long> {
-    Therapist findTherapyById(Long therapyId);
-
+    Therapist findTherapistById(Long therapistId);
 }
