@@ -31,14 +31,14 @@ public class NotificationServiceImplementation implements NotificationService{
     }
 
     @Override
-    public Notification save(Notification notification, Long recipientId) {
+    public Notification saveNotification(Notification notification, Long recipientId) {
         User user = userRepository.findUserById(recipientId);
         notification.setRecipient(user);
         return notificationRepository.save(notification);
     }
 
     @Override
-    public Notification update(Long id, Notification notification) {
+    public Notification updateNotification(Long id, Notification notification) {
         Notification existNotification = notificationRepository.findNotificationById(id);
         if(existNotification != null){
             existNotification.setMessage(notification.getMessage());
@@ -50,7 +50,7 @@ public class NotificationServiceImplementation implements NotificationService{
     }
 
     @Override
-    public void remove(Long id) {
+    public void removeNotification(Long id) {
         notificationRepository.deleteById(id);
     }
 }
