@@ -20,9 +20,11 @@ public class GroupPost {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "group_id")
     private SupportGroup group;
 
     @ManyToOne
+    @JoinColumn(name = "author_id")
     private User author;
 
     private String content;
