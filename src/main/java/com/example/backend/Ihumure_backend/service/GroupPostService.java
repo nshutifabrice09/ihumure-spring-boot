@@ -7,7 +7,7 @@ import java.util.List;
 public interface GroupPostService {
     List<GroupPost> getAllGroupPosts();
     GroupPost getGroupPostById(Long id);
-    GroupPost save(GroupPost groupPost, Long groupId, Long authorId);
-    GroupPost update(Long id, GroupPost groupPost);
-    void remove(Long id);
+    GroupPost saveGroupPost(GroupPost groupPost, Long groupId, Long authorId);
+    GroupPost updateGroupPost(Long id, GroupPost groupPost);
+    void removeGroupPost(Long id);
 }

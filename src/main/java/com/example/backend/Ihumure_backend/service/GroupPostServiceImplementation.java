@@ -34,7 +34,7 @@ public class GroupPostServiceImplementation implements GroupPostService{
     }
 
     @Override
-    public GroupPost save(GroupPost groupPost, Long groupId, Long authorId) {
+    public GroupPost saveGroupPost(GroupPost groupPost, Long groupId, Long authorId) {
         SupportGroup supportGroup = supportGroupRepository.findSupportGroupById(groupId);
         User user = userRepository.findUserById(authorId);
         groupPost.setGroup(supportGroup);
@@ -43,7 +43,7 @@ public class GroupPostServiceImplementation implements GroupPostService{
     }
 
     @Override
-    public GroupPost update(Long id, GroupPost groupPost) {
+    public GroupPost updateGroupPost(Long id, GroupPost groupPost) {
         GroupPost existGroupPost = groupPostRepository.findGroupPostById(id);
         if(existGroupPost != null){
             existGroupPost.setContent(groupPost.getContent());
@@ -54,7 +54,7 @@ public class GroupPostServiceImplementation implements GroupPostService{
     }
 
     @Override
-    public void remove(Long id) {
+    public void removeGroupPost(Long id) {
         groupPostRepository.deleteById(id);
     }
 }
