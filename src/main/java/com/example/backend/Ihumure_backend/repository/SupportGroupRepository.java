@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SupportGroupRepository extends JpaRepository<SupportGroup, Long> {
+    SupportGroup findSupportGroupById(Long groupId);
 }

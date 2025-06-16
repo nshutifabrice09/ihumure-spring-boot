@@ -1,6 +1,7 @@
 package com.example.backend.Ihumure_backend.service;
 
 import com.example.backend.Ihumure_backend.model.GroupPost;
+import com.example.backend.Ihumure_backend.model.SupportGroup;
 import com.example.backend.Ihumure_backend.repository.GroupPostRepository;
 import com.example.backend.Ihumure_backend.repository.SupportGroupRepository;
 import com.example.backend.Ihumure_backend.repository.UserRepository;
@@ -21,21 +22,19 @@ public class GroupPostServiceImplementation implements GroupPostService{
         this.supportGroupRepository = supportGroupRepository;
         this.userRepository = userRepository;
     }
-
-
     @Override
     public List<GroupPost> getAllGroupPosts() {
-        return null;
+        return groupPostRepository.findAll();
     }
 
     @Override
     public GroupPost getGroupPostById(Long id) {
-        return null;
+        return groupPostRepository.findGroupPostById();
     }
 
     @Override
     public GroupPost save(GroupPost groupPost, Long groupId, Long authorId) {
-        return null;
+        SupportGroup supportGroup = supportGroupRepository.findSupportGroupById(groupId);
     }
 
     @Override
