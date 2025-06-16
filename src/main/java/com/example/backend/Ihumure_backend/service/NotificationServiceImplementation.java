@@ -1,6 +1,7 @@
 package com.example.backend.Ihumure_backend.service;
 
 import com.example.backend.Ihumure_backend.model.Notification;
+import com.example.backend.Ihumure_backend.model.User;
 import com.example.backend.Ihumure_backend.repository.NotificationRepository;
 import com.example.backend.Ihumure_backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,26 +22,35 @@ public class NotificationServiceImplementation implements NotificationService{
 
     @Override
     public List<Notification> getAllNotifications() {
-        return null;
+        return notificationRepository.findAll();
     }
 
     @Override
     public Notification getNotificationById(Long id) {
-        return null;
+        return notificationRepository.findNotificationById(id);
     }
 
     @Override
     public Notification save(Notification notification, Long recipientId) {
-        return null;
+        User user = userRepository.findUserById(recipientId);
+        notification.setRecipient(user);
+        return notificationRepository.save(notification);
     }
 
     @Override
     public Notification update(Long id, Notification notification) {
+        Notification existNotification = notificationRepository.findNotificationById(id);
+        if(existNotification != null){
+            existNotification.setMessage(notification.getMessage());
+            existNotification.setRead(notification.isRead());
+            existNotification.setSentAt(notification.getSentAt());
+            return notificationRepository.save(existNotification);
+        }
         return null;
     }
 
     @Override
     public void remove(Long id) {
-
+        notificationRepository.deleteById(id);
     }
 }
