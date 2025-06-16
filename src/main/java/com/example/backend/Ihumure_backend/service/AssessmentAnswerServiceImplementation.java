@@ -36,7 +36,7 @@ public class AssessmentAnswerServiceImplementation implements AssessmentAnswerSe
     }
 
     @Override
-    public AssessmentAnswer save(AssessmentAnswer assessmentAnswer, Long assessmentId, Long questionId) {
+    public AssessmentAnswer saveAssessmentAnswer(AssessmentAnswer assessmentAnswer, Long assessmentId, Long questionId) {
         Assessment assessment = assessmentRepository.findAssessmentById(assessmentId);
         AssessmentQuestion assessmentQuestion = assessmentQuestionRepository.findAssessmentQuestionById(questionId);
         assessmentAnswer.setAssessment(assessment);
@@ -54,7 +54,7 @@ public class AssessmentAnswerServiceImplementation implements AssessmentAnswerSe
     }
 
     @Override
-    public void removeById(Long id) {
+    public void removeAssessmentAnswer(Long id) {
         assessmentAnswerRepository.deleteById(id);
     }
 }
