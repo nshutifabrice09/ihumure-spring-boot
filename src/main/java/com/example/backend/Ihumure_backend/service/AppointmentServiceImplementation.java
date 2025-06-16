@@ -36,7 +36,7 @@ public class AppointmentServiceImplementation implements AppointmentService{
     }
 
     @Override
-    public Appointment save(Appointment appointment, Long therapyId, Long userId) {
+    public Appointment saveAppointment(Appointment appointment, Long therapyId, Long userId) {
         Therapist therapist = therapistRepository.findTherapyById(therapyId);
         User user = userRepository.findUserById(userId);
         appointment.setTherapist(therapist);
@@ -57,7 +57,7 @@ public class AppointmentServiceImplementation implements AppointmentService{
     }
 
     @Override
-    public void removeById(Long id) {
+    public void removeAppointment(Long id) {
         appointmentRepository.deleteById(id);
     }
 }
