@@ -23,7 +23,7 @@ public class TherapistServiceImplementation implements TherapistService{
 
     @Override
     public Therapist getTherapistById(Long id) {
-        return therapistRepository.findTherapyById(id);
+        return therapistRepository.findTherapistById(id);
     }
 
     @Override
@@ -33,7 +33,13 @@ public class TherapistServiceImplementation implements TherapistService{
 
     @Override
     public Therapist updateTherapist(Long id, Therapist therapist) {
-        Therapist existTherapist = therapistRepository.findTherapyById(id);
+        Therapist existTherapist = therapistRepository.findTherapistById(id);
+        if(existTherapist != null){
+            existTherapist.setFullName(therapist.getFullName());
+            existTherapist.setSpecialization(therapist.getSpecialization());
+            existTherapist.setLicenseNumber(therapist.getLicenseNumber());
+            return therapistRepository.save(existTherapist);
+        }
         return null;
     }
 
