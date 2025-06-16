@@ -35,7 +35,7 @@ public class CommentServiceImplementation implements CommentService{
     }
 
     @Override
-    public Comment save(Comment comment, Long postId, Long authorId) {
+    public Comment saveComment(Comment comment, Long postId, Long authorId) {
         GroupPost groupPost = groupPostRepository.findGroupPostById(postId);
         User user = userRepository.findUserById(authorId);
         comment.setPost(groupPost);
@@ -55,7 +55,7 @@ public class CommentServiceImplementation implements CommentService{
     }
 
     @Override
-    public void removeId(Long id) {
+    public void removeComment(Long id) {
         commentRepository.deleteById(id);
     }
 }
