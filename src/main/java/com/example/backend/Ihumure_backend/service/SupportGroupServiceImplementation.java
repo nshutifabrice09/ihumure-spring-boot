@@ -27,12 +27,12 @@ public class SupportGroupServiceImplementation implements SupportGroupService{
     }
 
     @Override
-    public SupportGroup save(SupportGroup supportGroup) {
+    public SupportGroup saveSupportGroup(SupportGroup supportGroup) {
         return supportGroupRepository.save(supportGroup);
     }
 
     @Override
-    public SupportGroup update(Long id, SupportGroup supportGroup) {
+    public SupportGroup updateSupportGroup(Long id, SupportGroup supportGroup) {
         SupportGroup existSupportGroup = supportGroupRepository.findSupportGroupById(id);
         if(existSupportGroup != null){
             existSupportGroup.setName(supportGroup.getName());
@@ -44,7 +44,7 @@ public class SupportGroupServiceImplementation implements SupportGroupService{
     }
 
     @Override
-    public void remove(Long id) {
+    public void removeSupportGroup(Long id) {
         supportGroupRepository.deleteById(id);
     }
 }

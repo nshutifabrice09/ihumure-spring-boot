@@ -9,5 +9,5 @@ public interface TherapistService {
     Therapist getTherapistById(Long id);
     Therapist saveTherapist(Therapist therapist);
     Therapist updateTherapist(Long id, Therapist therapist);
-    void remove(Long id);
+    void removeTherapist(Long id);
 }

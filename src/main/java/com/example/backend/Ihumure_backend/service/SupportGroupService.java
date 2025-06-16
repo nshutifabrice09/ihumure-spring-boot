@@ -7,7 +7,7 @@ import java.util.List;
 public interface SupportGroupService {
     List<SupportGroup> getAllSupportGroups();
     SupportGroup getSupportGroupById(Long id);
-    SupportGroup save(SupportGroup supportGroup);
-    SupportGroup update(Long id, SupportGroup supportGroup);
-    void remove(Long id);
+    SupportGroup saveSupportGroup(SupportGroup supportGroup);
+    SupportGroup updateSupportGroup(Long id, SupportGroup supportGroup);
+    void removeSupportGroup(Long id);
 }
