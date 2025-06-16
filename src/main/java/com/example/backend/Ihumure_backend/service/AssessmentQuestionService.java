@@ -7,7 +7,7 @@ import java.util.List;
 public interface AssessmentQuestionService {
     List<AssessmentQuestion> getAllAssessmentQuestions();
     AssessmentQuestion getAssessmentQuestionById(Long id);
-    AssessmentQuestion save(AssessmentQuestion assessmentQuestion);
+    AssessmentQuestion saveAssessmentQuestion(AssessmentQuestion assessmentQuestion);
     AssessmentQuestion updateAssessmentQuestion(Long id, AssessmentQuestion assessmentQuestion);
-    void removeById(Long id);
+    void removeAssessmentQuestion(Long id);
 }

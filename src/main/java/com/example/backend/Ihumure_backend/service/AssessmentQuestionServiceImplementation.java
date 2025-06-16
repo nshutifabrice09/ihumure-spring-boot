@@ -27,7 +27,7 @@ public class AssessmentQuestionServiceImplementation implements AssessmentQuesti
     }
 
     @Override
-    public AssessmentQuestion save(AssessmentQuestion assessmentQuestion) {
+    public AssessmentQuestion saveAssessmentQuestion(AssessmentQuestion assessmentQuestion) {
         return assessmentQuestionRepository.save(assessmentQuestion);
     }
 
@@ -43,7 +43,7 @@ public class AssessmentQuestionServiceImplementation implements AssessmentQuesti
     }
 
     @Override
-    public void removeById(Long id) {
+    public void removeAssessmentQuestion(Long id) {
         assessmentQuestionRepository.deleteById(id);
     }
 }

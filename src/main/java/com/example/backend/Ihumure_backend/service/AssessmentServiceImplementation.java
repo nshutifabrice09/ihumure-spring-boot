@@ -32,7 +32,7 @@ public class AssessmentServiceImplementation implements AssessmentService{
     }
 
     @Override
-    public Assessment save(Assessment assessment, Long userId) {
+    public Assessment saveAssessment(Assessment assessment, Long userId) {
         User user = userRepository.findUserById(userId);
         assessment.setUser(user);
         return assessmentRepository.save(assessment);
@@ -50,7 +50,7 @@ public class AssessmentServiceImplementation implements AssessmentService{
     }
 
     @Override
-    public void removeById(Long id) {
+    public void removeAssessment(Long id) {
         assessmentRepository.deleteById(id);
     }
 }
