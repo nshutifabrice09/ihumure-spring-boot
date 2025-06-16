@@ -17,26 +17,35 @@ public class UserServiceImplementation implements UserService{
     }
     @Override
     public List<User> getAllUsers() {
-        return null;
+        return userRepository.findAll();
     }
 
     @Override
     public User getUserById(Long id) {
-        return null;
+        return userRepository.findUserById(id);
     }
 
     @Override
     public User saveUser(User user) {
-        return null;
+        return userRepository.save(user);
     }
 
     @Override
     public User updateUser(Long id, User user) {
+        User existUser = userRepository.findUserById(id);
+        if(existUser != null){
+            existUser.setEmail(user.getEmail());
+            existUser.setPassword(user.getPassword());
+            existUser.setFullName(user.getFullName());
+            existUser.setActive(user.isActive());
+            existUser.setRole(user.getRole());
+            return userRepository.save(existUser);
+        }
         return null;
     }
 
     @Override
     public void removeUser(Long id) {
-
+        userRepository.deleteById(id);
     }
 }
