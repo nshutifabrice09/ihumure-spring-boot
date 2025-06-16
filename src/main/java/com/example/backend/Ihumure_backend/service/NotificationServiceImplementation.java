@@ -1,2 +1,7 @@
-package com.example.backend.Ihumure_backend.service;public class NotificationServiceImplementation {
+package com.example.backend.Ihumure_backend.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class NotificationServiceImplementation implements NotificationService{
 }
