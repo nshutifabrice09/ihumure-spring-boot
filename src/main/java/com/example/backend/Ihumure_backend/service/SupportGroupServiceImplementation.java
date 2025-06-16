@@ -18,26 +18,33 @@ public class SupportGroupServiceImplementation implements SupportGroupService{
     }
     @Override
     public List<SupportGroup> getAllSupportGroups() {
-        return null;
+        return supportGroupRepository.findAll();
     }
 
     @Override
     public SupportGroup getSupportGroupById(Long id) {
-        return null;
+        return supportGroupRepository.findSupportGroupById(id);
     }
 
     @Override
     public SupportGroup save(SupportGroup supportGroup) {
-        return null;
+        return supportGroupRepository.save(supportGroup);
     }
 
     @Override
     public SupportGroup update(Long id, SupportGroup supportGroup) {
+        SupportGroup existSupportGroup = supportGroupRepository.findSupportGroupById(id);
+        if(existSupportGroup != null){
+            existSupportGroup.setName(supportGroup.getName());
+            existSupportGroup.setTopic(supportGroup.getTopic());
+            existSupportGroup.setDescription(supportGroup.getDescription());
+            return supportGroupRepository.save(existSupportGroup);
+        }
         return null;
     }
 
     @Override
     public void remove(Long id) {
-
+        supportGroupRepository.deleteById(id);
     }
 }
