@@ -28,4 +28,19 @@ public class TherapistController {
     public List<Therapist> therapistList(){
         return therapistService.getAlTherapists();
     }
+
+    @GetMapping("/therapist/{id}")
+    public Therapist getTherapist(@PathVariable ("id") Long id){
+        return therapistService.getTherapistById(id);
+    }
+
+    @PutMapping("/update/therapist/{id}")
+    public Therapist updateTherapist(@PathVariable ("id") Long id, @RequestBody Therapist therapist){
+        return therapistService.updateTherapist(id, therapist);
+    }
+
+    @DeleteMapping("/delete/therapist/{id}")
+    public void remove(@PathVariable ("id") Long id){
+        therapistService.removeTherapist(id);
+    }
 }
