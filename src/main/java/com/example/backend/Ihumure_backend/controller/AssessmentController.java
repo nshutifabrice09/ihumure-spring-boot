@@ -41,6 +41,6 @@ public class AssessmentController {
 
     @DeleteMapping("/delete/assessment/{id}")
     public void deleteAssessment(@PathVariable ("id") Long id){
-        assessmentService.removeAssessment(id);
+        assessmentService.removeAssessment(id );
     }
 }
