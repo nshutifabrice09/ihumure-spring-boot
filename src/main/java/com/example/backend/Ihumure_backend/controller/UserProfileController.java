@@ -1,6 +1,5 @@
 package com.example.backend.Ihumure_backend.controller;
 
-import com.example.backend.Ihumure_backend.model.User;
 import com.example.backend.Ihumure_backend.model.UserProfile;
 import com.example.backend.Ihumure_backend.service.UserProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
