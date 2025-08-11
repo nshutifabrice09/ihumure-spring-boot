@@ -2,7 +2,6 @@ package com.example.backend.Ihumure_backend.controller;
 
 import com.example.backend.Ihumure_backend.model.AssessmentAnswer;
 import com.example.backend.Ihumure_backend.service.AssessmentAnswerService;
-import com.example.backend.Ihumure_backend.service.AssessmentQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

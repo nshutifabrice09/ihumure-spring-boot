@@ -33,7 +33,7 @@ public class NotificationController {
         return notificationService.getNotificationById(id);
     }
 
-    @PutMapping("/update/notification/{id")
+    @PutMapping("/update/notification/{id}")
     public Notification updateNotification(@PathVariable ("id") Long id, @RequestBody Notification notification){
         return notificationService.updateNotification(id, notification);
     }
