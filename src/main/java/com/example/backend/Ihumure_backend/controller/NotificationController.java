@@ -27,5 +27,19 @@ public class NotificationController {
     public List<Notification> notificationList(){
         return notificationService.getAllNotifications();
     }
-    
+
+    @GetMapping("/notification/{id}")
+    public Notification getNotification(@PathVariable ("id") Long id){
+        return notificationService.getNotificationById(id);
+    }
+
+    @PutMapping("/update/notification/{id")
+    public Notification updateNotification(@PathVariable ("id") Long id, @RequestBody Notification notification){
+        return notificationService.updateNotification(id, notification);
+    }
+
+    @DeleteMapping("/delete/notification/{id}")
+    public void deleteNotification(@PathVariable ("id") Long id){
+        notificationService.removeNotification(id);
+    }
 }
