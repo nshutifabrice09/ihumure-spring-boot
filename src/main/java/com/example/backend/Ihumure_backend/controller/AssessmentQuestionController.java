@@ -3,11 +3,14 @@ package com.example.backend.Ihumure_backend.controller;
 import com.example.backend.Ihumure_backend.model.AssessmentQuestion;
 import com.example.backend.Ihumure_backend.service.AssessmentQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/assessment-question")
 @CrossOrigin("http://localhost:3000")
 public class AssessmentQuestionController {
 
@@ -18,9 +21,10 @@ public class AssessmentQuestionController {
         this.assessmentQuestionService = assessmentQuestionService;
     }
 
-    @PostMapping("/assessmentQuestion")
-    public AssessmentQuestion save(@RequestBody AssessmentQuestion assessmentQuestion){
-        return assessmentQuestionService.saveAssessmentQuestion(assessmentQuestion);
+    @PostMapping("/")
+    public ResponseEntity<AssessmentQuestion> createAssessmentQuestionResponse(@RequestBody AssessmentQuestion assessmentQuestion){
+        AssessmentQuestion saveAssessmentQuestion = assessmentQuestionService.saveAssessmentQuestion(assessmentQuestion);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saveAssessmentQuestion);
     }
 
     @GetMapping("/assessmentQuestions")

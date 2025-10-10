@@ -3,6 +3,8 @@ package com.example.backend.Ihumure_backend.controller;
 import com.example.backend.Ihumure_backend.model.User;
 import com.example.backend.Ihumure_backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,9 +21,11 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public User save(@RequestBody User user){
-        return userService.saveUser(user);
+      public ResponseEntity<User> createUser(@RequestBody User user){
+        User saveUser = userService.saveUser(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saveUser);
     }
+
 
     @GetMapping("/users")
     public List<User> userList(){
