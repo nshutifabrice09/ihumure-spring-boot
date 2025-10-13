@@ -33,8 +33,10 @@ public class AssessmentQuestionController {
     }
 
     @GetMapping("/{id}")
-    public AssessmentQuestion getAssessmentQuestion(@PathVariable ("id") Long id){
-        return assessmentQuestionService.getAssessmentQuestionById(id);
+    public ResponseEntity<AssessmentQuestion> getAssessmentQuestion(@PathVariable Long id) {
+        return assessmentQuestionService.getAssessmentQuestionById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PutMapping("/{id}")

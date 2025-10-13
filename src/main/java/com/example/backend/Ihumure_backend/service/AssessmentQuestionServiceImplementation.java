@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AssessmentQuestionServiceImplementation implements AssessmentQuestionService{
@@ -22,8 +23,8 @@ public class AssessmentQuestionServiceImplementation implements AssessmentQuesti
     }
 
     @Override
-    public AssessmentQuestion getAssessmentQuestionById(Long id) {
-        return assessmentQuestionRepository.findAssessmentQuestionById(id);
+    public Optional<AssessmentQuestion> getAssessmentQuestionById(Long id) {
+        return assessmentQuestionRepository.findById(id);
     }
 
     @Override
