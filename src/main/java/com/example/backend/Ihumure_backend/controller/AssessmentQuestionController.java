@@ -3,6 +3,7 @@ package com.example.backend.Ihumure_backend.controller;
 import com.example.backend.Ihumure_backend.model.AssessmentQuestion;
 import com.example.backend.Ihumure_backend.service.AssessmentQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -42,15 +43,16 @@ public class AssessmentQuestionController {
                                                                        @RequestBody AssessmentQuestion assessmentQuestion) {
         AssessmentQuestion updated = assessmentQuestionService.updateAssessmentQuestion(id, assessmentQuestion);
         if (updated == null) {
-            return ResponseEntity.notFound().build();  // 404 if the entity doesn’t exist
+            return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(updated);  // 200 OK with updated entity
+        return ResponseEntity.ok(updated);
     }
-
-
-
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable ("id") Long id){
-        assessmentQuestionService.removeAssessmentQuestion(id);
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        boolean removed = assessmentQuestionService.removeAssessmentQuestion(id);
+        if (!removed) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.noContent().build();
     }
 }

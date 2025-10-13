@@ -43,7 +43,8 @@ public class AssessmentQuestionServiceImplementation implements AssessmentQuesti
     }
 
     @Override
-    public void removeAssessmentQuestion(Long id) {
+    public boolean removeAssessmentQuestion(Long id) {
         assessmentQuestionRepository.deleteById(id);
+        return false;
     }
 }

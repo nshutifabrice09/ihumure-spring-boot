@@ -10,5 +10,5 @@ public interface AssessmentQuestionService {
     AssessmentQuestion getAssessmentQuestionById(Long id);
     AssessmentQuestion saveAssessmentQuestion(AssessmentQuestion assessmentQuestion);
     AssessmentQuestion updateAssessmentQuestion(Long id, AssessmentQuestion assessmentQuestion);
-    void removeAssessmentQuestion(Long id);
+    boolean removeAssessmentQuestion(Long id);
 }
