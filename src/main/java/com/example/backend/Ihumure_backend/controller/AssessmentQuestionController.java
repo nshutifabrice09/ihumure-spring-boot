@@ -27,22 +27,22 @@ public class AssessmentQuestionController {
         return ResponseEntity.status(HttpStatus.CREATED).body(saveAssessmentQuestion);
     }
 
-    @GetMapping("/assessmentQuestions")
-    public List<AssessmentQuestion> assessmentQuestionList(){
-        return assessmentQuestionService.getAllAssessmentQuestions();
+    @GetMapping("/")
+    public ResponseEntity<List<AssessmentQuestion>> getAll(){
+        return ResponseEntity.ok(assessmentQuestionService.getAllAssessmentQuestions());
     }
 
-    @GetMapping("/assessmentQuestion/{id}")
+    @GetMapping("/{id}")
     public AssessmentQuestion getAssessmentQuestion(@PathVariable ("id") Long id){
         return assessmentQuestionService.getAssessmentQuestionById(id);
     }
 
-    @PutMapping("/update/assessmentQuestion/{id}")
+    @PutMapping("/{id}")
     public AssessmentQuestion updateAssessmentQuestion(@PathVariable ("id") Long id, @RequestBody AssessmentQuestion assessmentQuestion){
         return assessmentQuestionService.updateAssessmentQuestion(id, assessmentQuestion);
     }
 
-    @DeleteMapping("/delete/assessmentQuestion/{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable ("id") Long id){
         assessmentQuestionService.removeAssessmentQuestion(id);
     }
