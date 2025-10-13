@@ -33,16 +33,21 @@ public class AssessmentQuestionController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<AssessmentQuestion> getAssessmentQuestion(@PathVariable Long id) {
-        return assessmentQuestionService.getAssessmentQuestionById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public AssessmentQuestion getAssessmentQuestion(@PathVariable Long id) {
+        return assessmentQuestionService.getAssessmentQuestionById(id);
     }
 
     @PutMapping("/{id}")
-    public AssessmentQuestion updateAssessmentQuestion(@PathVariable ("id") Long id, @RequestBody AssessmentQuestion assessmentQuestion){
-        return assessmentQuestionService.updateAssessmentQuestion(id, assessmentQuestion);
+    public ResponseEntity<AssessmentQuestion> updateAssessmentQuestion(@PathVariable Long id,
+                                                                       @RequestBody AssessmentQuestion assessmentQuestion) {
+        AssessmentQuestion updated = assessmentQuestionService.updateAssessmentQuestion(id, assessmentQuestion);
+        if (updated == null) {
+            return ResponseEntity.notFound().build();  // 404 if the entity doesn’t exist
+        }
+        return ResponseEntity.ok(updated);  // 200 OK with updated entity
     }
+
+
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable ("id") Long id){
