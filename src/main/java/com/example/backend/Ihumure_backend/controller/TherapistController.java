@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/therapist")
 @CrossOrigin("http://localhost:3000")
 public class TherapistController {
 
@@ -19,27 +20,27 @@ public class TherapistController {
         this.therapistService = therapistService;
     }
 
-    @PostMapping("/therapist")
+    @PostMapping("/")
     public Therapist saveTherapist(@RequestBody Therapist therapist){
         return therapistService.saveTherapist(therapist);
     }
 
-    @GetMapping("therapists")
+    @GetMapping("/")
     public List<Therapist> therapistList(){
         return therapistService.getAlTherapists();
     }
 
-    @GetMapping("/therapist/{id}")
+    @GetMapping("/{id}")
     public Therapist getTherapist(@PathVariable ("id") Long id){
         return therapistService.getTherapistById(id);
     }
 
-    @PutMapping("/update/therapist/{id}")
+    @PutMapping("/update/{id}")
     public Therapist updateTherapist(@PathVariable ("id") Long id, @RequestBody Therapist therapist){
         return therapistService.updateTherapist(id, therapist);
     }
 
-    @DeleteMapping("/delete/therapist/{id}")
+    @DeleteMapping("/delete/{id}")
     public void remove(@PathVariable ("id") Long id){
         therapistService.removeTherapist(id);
     }
