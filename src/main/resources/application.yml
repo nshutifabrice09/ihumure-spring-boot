@@ -24,3 +24,8 @@ logging:
     org.springframework: INFO
     com.example.backend.Ihumure_backend: DEBUG
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

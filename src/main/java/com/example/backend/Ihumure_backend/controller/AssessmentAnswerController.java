@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/assessment-answer")
 @CrossOrigin("http://localhost:3000")
 public class AssessmentAnswerController {
 
@@ -18,29 +19,29 @@ public class AssessmentAnswerController {
         this.assessmentAnswerService= assessmentAnswerService;
     }
 
-    @PostMapping("/assessmentAnswer/{assessmentId}/{questionId}")
+    @PostMapping("/{assessmentId}/{questionId}")
     public AssessmentAnswer saveAssessmentAnswer(@RequestBody AssessmentAnswer assessmentAnswer,
                                                  @PathVariable ("assessmentId") Long assessmentId, @PathVariable ("questionId") Long questionId){
         return assessmentAnswerService.saveAssessmentAnswer(assessmentAnswer, assessmentId, questionId);
     }
 
-    @GetMapping("/assessmentAnswers")
+    @GetMapping("/")
     public List<AssessmentAnswer> assessmentAnswerList(){
         return assessmentAnswerService.getAllAssessmentAnswers();
     }
 
-    @GetMapping("/assessmentAnswer/{id}")
+    @GetMapping("/{id}")
     public  AssessmentAnswer getAssessmentAnswer(@PathVariable ("id") Long id){
         return assessmentAnswerService.getAssessmentAnswerById(id);
     }
 
-    @PutMapping("/update/assessmentAnswer/{id}")
+    @PutMapping("/update/{id}")
     public AssessmentAnswer updateAssessmentAnswer(@PathVariable ("id") Long id, @RequestBody AssessmentAnswer assessmentAnswer){
         return assessmentAnswerService.updateAssessmentAnswer(id, assessmentAnswer);
     }
 
 
-    @DeleteMapping("/delete/assessmentAnswer/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteAssessmentAnswer(@PathVariable ("id") Long id){
         assessmentAnswerService.removeAssessmentAnswer(id);
     }

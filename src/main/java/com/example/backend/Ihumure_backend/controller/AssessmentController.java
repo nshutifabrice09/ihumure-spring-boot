@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/assessment")
 @CrossOrigin("http://localhost:3000")
 public class AssessmentController {
 
@@ -19,27 +20,27 @@ public class AssessmentController {
     }
 
 
-    @PostMapping("/assessment/{userId}")
+    @PostMapping("/{userId}")
     public Assessment saveAssessment(@RequestBody Assessment assessment, @PathVariable("userId") Long userId){
         return assessmentService.saveAssessment(assessment, userId);
     }
 
-    @GetMapping("/assessments")
+    @GetMapping("/")
     public List<Assessment> assessmentList(){
         return assessmentService.getAllAssessments();
     }
 
-    @GetMapping("/assessment/{id}")
+    @GetMapping("/{id}")
     public Assessment getAssessment(@PathVariable ("id") Long id){
         return assessmentService.getAssessmentById(id);
     }
 
-    @PutMapping("/update/assessment/{id}")
+    @PutMapping("/update/{id}")
     public Assessment updateAssessment (@PathVariable ("id") Long id, @RequestBody Assessment assessment){
         return assessmentService.updateAssessment(id, assessment);
     }
 
-    @DeleteMapping("/delete/assessment/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteAssessment(@PathVariable ("id") Long id){
         assessmentService.removeAssessment(id );
     }

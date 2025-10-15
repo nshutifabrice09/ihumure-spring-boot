@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/appointment-service")
 @CrossOrigin("http://localhost:3000")
 public class AppointmentController {
 
@@ -18,28 +19,28 @@ public class AppointmentController {
         this.appointmentService = appointmentService;
     }
 
-    @PostMapping("/appointment/{therapistId}/{userId}")
+    @PostMapping("/{therapistId}/{userId}")
     public Appointment saveAppointment(@RequestBody Appointment appointment,
                                        @PathVariable ("therapistId") Long therapistId, @PathVariable ("userId") Long userId){
         return appointmentService.saveAppointment(appointment, therapistId, userId);
     }
 
-    @GetMapping("/appointments")
+    @GetMapping("/")
     public List<Appointment> appointmentList(){
         return appointmentService.getAllAppointments();
     }
 
-    @GetMapping("/appointment/{id}")
+    @GetMapping("/{id}")
     public Appointment getAppointment(@PathVariable ("id") Long id){
         return appointmentService.getAppointmentById(id);
     }
 
-    @PutMapping("/update/appointment/{id}")
+    @PutMapping("/update/{id}")
     public Appointment updateAppointment(@PathVariable ("id") Long id, @RequestBody Appointment appointment){
         return appointmentService.updateAppointment(id, appointment);
     }
 
-    @DeleteMapping("/delete/appointment/{id}")
+    @DeleteMapping("/delete/{id}")
     public void removeAppointment(@PathVariable ("id") Long id){
         appointmentService.removeAppointment(id);
     }
