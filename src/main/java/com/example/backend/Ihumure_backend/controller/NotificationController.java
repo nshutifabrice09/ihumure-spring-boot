@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/notification")
 @CrossOrigin("/http://localhost/3000")
 public class NotificationController {
 
@@ -18,27 +19,27 @@ public class NotificationController {
         this.notificationService = notificationService;
     }
 
-    @PostMapping("/notification/{recipientId}")
+    @PostMapping("/{recipientId}")
     public Notification save(@RequestBody Notification notification, @PathVariable ("recipientId") Long recipientId){
         return notificationService.saveNotification(notification, recipientId);
     }
 
-    @GetMapping("/notifications")
+    @GetMapping("/")
     public List<Notification> notificationList(){
         return notificationService.getAllNotifications();
     }
 
-    @GetMapping("/notification/{id}")
+    @GetMapping("/{id}")
     public Notification getNotification(@PathVariable ("id") Long id){
         return notificationService.getNotificationById(id);
     }
 
-    @PutMapping("/update/notification/{id}")
+    @PutMapping("/update/{id}")
     public Notification updateNotification(@PathVariable ("id") Long id, @RequestBody Notification notification){
         return notificationService.updateNotification(id, notification);
     }
 
-    @DeleteMapping("/delete/notification/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteNotification(@PathVariable ("id") Long id){
         notificationService.removeNotification(id);
     }
