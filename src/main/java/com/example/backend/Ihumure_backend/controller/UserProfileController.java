@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/user-profile")
 @CrossOrigin("http://localhost:3000")
 public class UserProfileController {
 
@@ -18,27 +19,27 @@ public class UserProfileController {
         this.userProfileService = userProfileService;
     }
 
-    @PostMapping("/userProfile/{userId}")
+    @PostMapping("/{userId}")
     public UserProfile saveUserProfile(@RequestBody UserProfile userProfile, @PathVariable ("userId") Long userId){
         return userProfileService.saveUserProfile(userProfile, userId);
     }
 
-    @GetMapping("/userProfiles")
+    @GetMapping("/")
     public List<UserProfile> userProfileList(){
         return userProfileService.getAllUserProfiles();
     }
 
-    @GetMapping("/userProfile/{id}")
+    @GetMapping("/{id}")
     public UserProfile getUserProfile(@PathVariable ("id") Long id){
         return userProfileService.getUserProfileById(id);
     }
 
-    @PutMapping("/update/userProfile/{id}")
+    @PutMapping("/update/{id}")
     public UserProfile updateUserProfile(@PathVariable ("id") Long id, @RequestBody UserProfile userProfile){
         return userProfileService.updateUserProfile(id, userProfile);
     }
 
-    @DeleteMapping("/delete/userProfile/{id}")
+    @DeleteMapping("/delete/{id}")
     private void removeUserProfile(@PathVariable ("id") Long id){
         userProfileService.removeUserProfile(id);
     }

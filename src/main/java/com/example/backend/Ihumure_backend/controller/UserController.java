@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("http://localhost:3000")
-@RequestMapping("/api/")
+@RequestMapping("/api/user")
 public class UserController {
 
     private final UserService userService;
@@ -21,29 +21,29 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/user")
+    @PostMapping("/")
       public ResponseEntity<User> createUser(@RequestBody User user){
         User saveUser = userService.saveUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(saveUser);
     }
 
 
-    @GetMapping("/users")
+    @GetMapping("/")
     public List<User> userList(){
         return userService.getAllUsers();
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/{id}")
     public User getUser(@PathVariable ("id") Long id){
         return userService.getUserById(id);
     }
 
-    @PutMapping("/update/user/{id}")
+    @PutMapping("/update/{id}")
     public User updateUser(@PathVariable ("id") Long id, @RequestBody User user){
         return userService.updateUser(id, user);
     }
 
-    @DeleteMapping("/delete/user/{id}")
+    @DeleteMapping("/delete/{id}")
     public void removeUser(@PathVariable ("id") Long id){
         userService.removeUser(id);
     }
