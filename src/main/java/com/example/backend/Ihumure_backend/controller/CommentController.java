@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/comment")
 @CrossOrigin("http://localhost:3000")
 public class CommentController {
 
@@ -19,27 +20,27 @@ public class CommentController {
         this.commentService = commentService;
     }
 
-    @PostMapping("/comment/{postId}/{authorId}")
+    @PostMapping("/{postId}/{authorId}")
     public Comment saveComment(@RequestBody Comment comment, @PathVariable("postId") Long postId, @PathVariable ("authorId") Long authorId){
         return commentService.saveComment(comment, postId, authorId);
     }
 
-    @GetMapping("/comments")
+    @GetMapping("/")
     public List<Comment> commentList(){
         return commentService.getAllComments();
     }
 
-    @GetMapping("/comment/{id}")
+    @GetMapping("/{id}")
     public Comment getComment(@PathVariable("id") Long id){
         return commentService.getCommentById(id);
     }
 
-    @PutMapping("/update/comment/{id}")
+    @PutMapping("/update/{id}")
     public Comment updateComment(@PathVariable ("id") Long id, @RequestBody Comment comment){
         return commentService.updateComment(id, comment);
     }
 
-    @DeleteMapping("/Delete/comment/{id}")
+    @DeleteMapping("/Delete/{id}")
     public void deleteComment(@PathVariable ("id") Long id){
         commentService.removeComment(id);
     }

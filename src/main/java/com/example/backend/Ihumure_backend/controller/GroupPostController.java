@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/group-post")
 @CrossOrigin("http://localhost:3000")
 public class GroupPostController {
 
@@ -18,28 +19,28 @@ public class GroupPostController {
         this.groupPostService = groupPostService;
     }
 
-    @PostMapping("/groupPost/{groupId}/{authorId}")
+    @PostMapping("/{groupId}/{authorId}")
     public GroupPost saveGroupPost(@RequestBody GroupPost groupPost, @PathVariable ("groupId") Long groupId,
                                    @PathVariable ("authorId") Long authorId){
         return groupPostService.saveGroupPost(groupPost, groupId, authorId);
     }
 
-    @GetMapping("/groupPosts")
+    @GetMapping("/")
     public List<GroupPost> groupPostList(){
         return groupPostService.getAllGroupPosts();
     }
 
-    @GetMapping("/groupPost/{id}")
+    @GetMapping("/{id}")
     public GroupPost getGroupPost(@PathVariable ("id") Long id){
         return groupPostService.getGroupPostById(id);
     }
 
-    @PutMapping("/update/groupPost/{id}")
+    @PutMapping("/update/{id}")
     public GroupPost updateGroupPost(@PathVariable ("id") Long id, @RequestBody GroupPost groupPost){
         return groupPostService.updateGroupPost(id, groupPost);
     }
 
-    @DeleteMapping("/delete/groupPost/{id}")
+    @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable("id") Long id){
         groupPostService.removeGroupPost(id);
     }
